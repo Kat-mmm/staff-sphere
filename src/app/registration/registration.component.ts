@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { EmailValidator, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,20 +12,20 @@ export class RegistrationComponent {
   constructor(private http: HttpClient) {}
 
   NewEmployee(employees: {
-    name: any;
-    surname: any;
-    gender: any;
-    phone: any;
-    email: any;
-    address: any;
-    idNo: any;
-    employeeId: any;
-    password: any;
-    department: any;
-    workRole: any;
-    emergencyContactName: any;
-    emergencyContactRelationship: any;
-    emergencyContactNo: any;
+    name: string;
+    surname: string;
+    gender: string;
+    phone: number;
+    email: EmailValidator;
+    address: string;
+    idNo: number;
+    employeeId: number;
+    password: string;
+    department: string;
+    workRole: string;
+    emergencyContactName: string;
+    emergencyContactRelationship: string;
+    emergencyContactNo: number;
   }) {
     console.log(employees);
     this.http.post('http://localhost:3000/employeeData',employees).subscribe((res) => {
